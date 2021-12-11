@@ -34,18 +34,35 @@ var formSubmit = function(event) {
 }
 
 
-var currentWeather = function(city) {
-    apiUrl = "api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=45f52585d5cdf2132a98b097a233ae04";
-
-    fetch(apiUrl)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function(data) {
-        console.log(data);
-        
-    })
-}
 
 
 cityform.addEventListener('submit', formSubmit);
+
+function currentweather(cityname) {
+    var key = '45f52585d5cdf2132a98b097a233ae04';
+    fetch('api.openweathermap.org/data/2.5/weather?q=' + cityname+ '&appid=' + key)
+    .then(function(resp) { return resp.json() })
+    .then(function(data) {
+        console.log(data);
+    })
+    .catch(function() {
+        // catch errors
+    })
+}
+
+/*function weatherBalloon( cityID ) {
+    var key = '{yourkey}';
+    fetch('https://api.openweathermap.org/data/2.5/weather?id=' + cityID+ '&appid=' + key)  
+    .then(function(resp) { return resp.json() }) // Convert data to json
+    .then(function(data) {
+      console.log(data);
+    })
+    .catch(function() {
+      // catch any errors
+    });
+  }
+  
+  window.onload = function() {
+    weatherBalloon( 6167865 );
+  }
+  */
