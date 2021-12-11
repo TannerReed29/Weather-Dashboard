@@ -35,12 +35,15 @@ var formSubmit = function(event) {
 
 
 var currentWeather = function(city) {
-    apiUrl = "api.openweathermap.org/data/2.5/weather?q="+city+"&appid=45f52585d5cdf2132a98b097a233ae04";
+    apiUrl = "api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=45f52585d5cdf2132a98b097a233ae04";
 
-    fetch(apiUrl).then(function(response) {
-        response.json().then(function(data) {
-            console.log(data);
-        })
+    fetch(apiUrl)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function(data) {
+        console.log(data);
+        
     })
 }
 
