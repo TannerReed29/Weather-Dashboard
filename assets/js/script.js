@@ -42,8 +42,8 @@ function currentweather(name)
     var key = '45f52585d5cdf2132a98b097a233ae04';
 //  api.openweathermap.org/data/2.5/weather?q={city name}&appid={key}
 //    fetch('api.openweathermap.org/data/2.5/weather?q=London&appid=45f52585d5cdf2132a98b097a233ae04')
-//    var apicall ='api.openweathermap.org/data/2.5/weather?q=London&appid=45f52585d5cdf2132a98b097a233ae04'
-    var apicall = 'https://api.openbrewerydb.org/breweries?by_city=London'
+    var apicall ='api.openweathermap.org/data/2.5/weather?q=London&appid=45f52585d5cdf2132a98b097a233ae04'
+//    var apicall = 'https://api.openbrewerydb.org/breweries?by_city=London'
     fetch(apicall)
 //  fetch('https://api.openbrewerydb.org/breweries?by_city=London')
     .then( response => 
