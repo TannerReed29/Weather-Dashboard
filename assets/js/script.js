@@ -14,3 +14,35 @@ THEN I am presented with a 5-day forecast that displays the date, an icon repres
 WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 */
+var cityform = document.getElementById("city-form")
+var citySearch = document.querySelector("#city-search")
+
+
+
+var formSubmit = function(event) {
+    event.preventDefault();
+
+    var cityname = citySearch.value.trim();
+
+    if (cityname) {
+        currentWeather(cityname);
+
+        citySearch.value = '';
+    } else {
+        alert("Enter Valid City")
+    }
+}
+
+
+var currentWeather = function(city) {
+    apiUrl = "api.openweathermap.org/data/2.5/weather?q="+city+"&appid=45f52585d5cdf2132a98b097a233ae04";
+
+    fetch(apiUrl).then(function(response) {
+        response.json().then(function(data) {
+            console.log(data);
+        })
+    })
+}
+
+
+cityform.addEventListener('submit', formSubmit);
