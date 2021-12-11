@@ -23,32 +23,65 @@ var formSubmit = function(event) {
     event.preventDefault();
 
     var cityname = citySearch.value.trim();
-
-    if (cityname) {
+    console.log(cityname);
+    if (cityname)
+    {
         currentweather(cityname);
-
         citySearch.value = '';
-    } else {
-        alert("Enter Valid City")
+    }
+    else
+    {
+        window.alert("Enter Valid City")
     }
 }
 
-
-
-
 cityform.addEventListener('submit', formSubmit);
 
-function currentweather(name) {
+function currentweather(name) 
+{
     var key = '45f52585d5cdf2132a98b097a233ae04';
-    fetch('api.openweathermap.org/data/2.5/weather?q=' + name+ '&appid=' + key)
-    .then(function(resp) { return resp.json() })
-    .then(function(data) {
+//  api.openweathermap.org/data/2.5/weather?q={city name}&appid={key}
+//    fetch('api.openweathermap.org/data/2.5/weather?q=London&appid=45f52585d5cdf2132a98b097a233ae04')
+//    var apicall ='api.openweathermap.org/data/2.5/weather?q=London&appid=45f52585d5cdf2132a98b097a233ae04'
+    var apicall = 'https://api.openbrewerydb.org/breweries?by_city=London'
+    fetch(apicall)
+//  fetch('https://api.openbrewerydb.org/breweries?by_city=London')
+    .then( response => 
+        {
+            return response.json();
+        }
+    )
+    .then(data => 
+        {
+            console.log(data);
+        }
+    );
+    
+
+
+    /*fetch('api.openweathermap.org/data/2.5/weather?q=' + name+ '&appid=' + key)
+    .then(function(resp) 
+    {
+        return resp.json() 
+    })
+    .then(function(data)
+    {
         console.log(data);
     })
-    .catch(function() {
+    .catch(function() 
+    {
         // catch errors
-    })
+    })*/
 }
+
+
+
+
+
+
+
+
+
 
 /*function weatherBalloon( cityID ) {
     var key = '{yourkey}';
