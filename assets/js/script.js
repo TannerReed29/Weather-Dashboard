@@ -25,7 +25,7 @@ var formSubmit = function(event) {
     var cityname = citySearch.value.trim();
 
     if (cityname) {
-        currentWeather(cityname);
+        currentweather(cityname);
 
         citySearch.value = '';
     } else {
@@ -38,9 +38,9 @@ var formSubmit = function(event) {
 
 cityform.addEventListener('submit', formSubmit);
 
-function currentweather(cityname) {
+function currentweather(name) {
     var key = '45f52585d5cdf2132a98b097a233ae04';
-    fetch('api.openweathermap.org/data/2.5/weather?q=' + cityname+ '&appid=' + key)
+    fetch('api.openweathermap.org/data/2.5/weather?q=' + name+ '&appid=' + key)
     .then(function(resp) { return resp.json() })
     .then(function(data) {
         console.log(data);
