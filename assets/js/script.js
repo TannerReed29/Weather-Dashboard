@@ -40,38 +40,45 @@ cityform.addEventListener('submit', formSubmit);
 function currentweather(name) 
 {
     var key = '45f52585d5cdf2132a98b097a233ae04';
+    /*
 //  api.openweathermap.org/data/2.5/weather?q={city name}&appid={key}
-//    fetch('api.openweathermap.org/data/2.5/weather?q=London&appid=45f52585d5cdf2132a98b097a233ae04')
-    var apicall ='api.openweathermap.org/data/2.5/weather?q=London&appid=45f52585d5cdf2132a98b097a233ae04'
+//    fetch('api.openweathermap.org/data/2.5/weather?q=London&appid=45f52585d5cdf2132a98b097a233ae04&mode=xml')
+//    var apicall ='api.openweathermap.org/data/2.5/weather?q=London&appid=45f52585d5cdf2132a98b097a233ae04'
+var apicall ='http://api.openweathermap.org/data/2.5/weather?q=London&appid=' + key;
 //    var apicall = 'https://api.openbrewerydb.org/breweries?by_city=London'
-    fetch(apicall)
+fetch(apicall)
 //  fetch('https://api.openbrewerydb.org/breweries?by_city=London')
     .then( response => 
         {
             return response.json();
         }
-    )
-    .then(data => 
+        )
+        .then(data => 
         {
             console.log(data);
         }
-    );
-    
-
-
-    /*fetch('api.openweathermap.org/data/2.5/weather?q=' + name+ '&appid=' + key)
-    .then(function(resp) 
-    {
-        return resp.json() 
-    })
-    .then(function(data)
-    {
-        console.log(data);
-    })
-    .catch(function() 
-    {
-        // catch errors
-    })*/
+        );
+        */
+       
+       
+       
+    fetch('http://api.openweathermap.org/data/2.5/weather?q=' + name + '&appid=' + key + '&units=imperial')
+        .then(function(resp) 
+            {
+                return resp.json() 
+            }
+        )
+        .then(function(data)
+            {
+                console.log(data);
+                console.log(data.main.temp + " F");
+            }
+        )
+        .catch(function() 
+            {
+                // catch errors
+            }
+        );
 }
 
 
