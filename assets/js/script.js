@@ -16,6 +16,7 @@ var cityform = document.getElementById("city-form");
 var citySearch = document.querySelector("#city-search");
 var currentinfo = document.getElementById("current-info");
 var currentcity = document.getElementById("current-city");
+var currentdate = document.getElementById("date");
 var tempdata = document.getElementById('temp');
 var humiddata = document.getElementById('humidity')
 var windEl = document.getElementById('wind')
@@ -79,7 +80,7 @@ function currentweather(name)
 
                 // set text of elements
                 city.textContent = data.name;
-//                dateEl.textContent = Date.now ;
+                dateEl.textContent = new Date().toISOString().slice(0, 10);
                 icon.textContent = data.weather.icon;
                 temp.textContent = "Temp: " + data.main.temp + " °F";
                 humidity.textContent = "Humidity: " + data.main.humidity + " %";
@@ -92,7 +93,7 @@ function currentweather(name)
                 //append dynamic html to associated div
                 currentcity.append(city);
 
-//                currentinfo.append(dateEl);
+                currentdate.append(dateEl);
 
                 currentinfo.append(icon);
 

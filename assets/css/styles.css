@@ -30,7 +30,6 @@ form {
     /*justify-content: flex-start;*/
     
     padding: 10px;
-    border: 1px solid blue;
 }
 
 input {
@@ -49,7 +48,6 @@ button {
     background-color: grey;
     width: 60%;
     height: 40vh;
-    border: 1px solid green;
     margin-left: 45%;
     padding-left: 15px;
 }
@@ -77,8 +75,10 @@ button {
     padding-left: 100px;
     font-size: 18px;
 }
-
+#date {
+    padding-left: 90px;
+    font-size: 20px;
+}
 #days {
-    position: relative;
-    float: left;
+    padding-left: 15px;
 }
