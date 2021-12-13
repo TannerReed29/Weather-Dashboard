@@ -1,6 +1,4 @@
-//create object with function of what 
-//needs to be called and then 
-//feed that data into loop that builds shadow
+
 /*
 GIVEN a weather dashboard with form inputs
 WHEN I search for a city
@@ -22,6 +20,8 @@ var tempdata = document.getElementById('temp');
 var humiddata = document.getElementById('humidity')
 var windEl = document.getElementById('wind')
 var uvEl = document.getElementById('UV')
+var weekEl = document.getElementById('week-info')
+var daysEl = document.getElementById('days')
 
 var formSubmit = function(event) {
     event.preventDefault();
@@ -31,6 +31,7 @@ var formSubmit = function(event) {
     if (cityname)
     {
         currentweather(cityname);
+        forecast(cityname);
         citySearch.value = '';
     }
     else
@@ -112,6 +113,72 @@ function currentweather(name)
 }
 
 //function forecast 
+function forecast(name) 
+{
+    var key = '45f52585d5cdf2132a98b097a233ae04';
+              
+    fetch('http://api.openweathermap.org/data/2.5/forecast/?q=' + name + '&units=imperial&appid=' + key)
+        .then(function(resp) 
+            {
+                return resp.json() 
+            }
+        )
+        .then(function(data)
+            {
+                //city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
+                console.log(data);
 
+
+                // creating elements
+                for(var i=0; i < data.list.length;i += 8) {
+
+                    var dateEl = document.createElement('h4');
+                    
+                    var icon = document.createElement('img');
+                    
+                    var temp = document.createElement('p');
+                    
+                    var humidity = document.createElement('p');
+                    
+                    
+                    var ws = document.createElement('p');
+                    
+                    
+                    
+                    // set text of elements
+                    
+                    
+                    
+                    dateEl.textContent = data.list[i].dt_txt;
+                    icon.textContent = data.list[i].weather.icon;
+                    temp.textContent = "Temp: " + data.list[i].main.temp + " °F";
+                    humidity.textContent = "Humidity: " + data.list[i].main.humidity + " %";
+                    ws.textContent = "Wind: " + data.list[i].wind.speed + " MPH";
+                    
+                    
+                    
+                    
+                    //append dynamic html to associated div
+                    
+                    daysEl.append(dateEl);
+                    
+                    daysEl.append(icon);
+                    
+                    daysEl.append(temp);
+                    
+                    daysEl.append(humidity);
+                    
+                    daysEl.append(ws);
+                }
+                    
+                
+            }
+        )
+        .catch(function() 
+            {
+                // catch errors
+            }
+        );
+}
 
 

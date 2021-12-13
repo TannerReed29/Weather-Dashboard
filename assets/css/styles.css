@@ -77,3 +77,8 @@ button {
     padding-left: 100px;
     font-size: 18px;
 }
+
+#days {
+    position: relative;
+    float: left;
+}
