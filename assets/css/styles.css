@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(56, 56, 56, 0.856);
+    color:whitesmoke;
+}
+
+header {
+    margin-bottom: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: x-large;
+    background-color: navy;
+}
+
+h2 {
+    font-size: xx-large;
+    padding: 10px 0px 10px 50px;
+    width: 100%;
+}
+
+
+form {
+    width: fit-content;
+    height: 100%;
+    margin: 0;
+    display: block;
+    /*flex-wrap: wrap;*/
+    /*justify-content: flex-start;*/
+    
+    padding: 10px;
+    border: 1px solid blue;
+}
+
+input {
+    font-size: 1.2rem;
+    width: 100%;
+    height: max-content;
+}
+button {
+    padding-left: 10px;
+    width: 25%;
+    font-size: 1.2rem;
+}
+
+#current-info {
+    color: whitesmoke;
+    background-color: grey;
+    width: 60%;
+    height: 40vh;
+    border: 1px solid green;
+    margin-left: 45%;
+    padding-left: 15px;
+}
+
+.current-city {
+    font-size: 24px;
+    padding-left: 80px;
+}
+
+
+.temp-data {
+    padding-left: 100px;
+    font-size: 18px;
+    
+}
+.humid-data {
+    padding-left: 100px;
+    font-size: 18px;
+}
+.wind-data {
+    padding-left: 100px;
+    font-size: 18px;
+}
+.uv-data {
+    padding-left: 100px;
+    font-size: 18px;
+}
